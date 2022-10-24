@@ -1,22 +1,21 @@
-const Navbar = () => {
-    return ( 
-        <nav className="navbar">
-         <h1>AOS Blog</h1>
-         <div className="links">
-          <a href="/"> Anasayfa</a>
-          <a href="/create" style={{
-color:'white',
-backgroundColor:'#ff793f',
-borderRadius:'8px'
+import { Link } from 'react-router-dom';
 
-          }}>Yeni Yazı</a>
-         
-         </div>
-           
+const Navbar = () => {
+    return (
+        <nav className="navbar">
+            <h1>AOS Blog</h1>
+            <div className="links">
+                <Link to="/">Anasayfa</Link>
+                <Link to="/create" style={{
+                    color:'white',
+                    backgroundColor:'#ff793f',
+                    borderRadius:'8px'
+                }}>Yeni Yazı</Link>
+            </div>
+
         </nav>
-      
-     );
+
+    );
 }
- 
+
 export default Navbar;
- 
