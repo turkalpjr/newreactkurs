@@ -1,6 +1,8 @@
  
 import Navbar from './Navbar';
 import Anasayfa from './Home';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'; 
+
 
 
 function App() {
@@ -11,12 +13,24 @@ function App() {
   const link= "www.google.com"
 
   return (
+         <Router>
     <div className="App">
           <Navbar/>
           <div className="content">
-             <Anasayfa></Anasayfa>
+             {/* <Anasayfa></Anasayfa> */}
+                 <Switch>
+                  <Route path="/create">
+                       <Create/>
+
+                    <Anasayfa/>
+                  </Route>
+
+                 </Switch>
+
+
           </div>
     </div>
+         </Router>
   );
 }
 
