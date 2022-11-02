@@ -1,28 +1,34 @@
 {
-    "yazilar":[
-        {
-            "ad":"Yeni Başlayanlar İçin C#",
-            "aciklama":"lorem ipsum",
-            "yazar":"luffy",
-            "id":1
-         },
-         {
-            "ad":"React öğreniyorum",
-            "aciklama":"lorem ipsum",
-            "yazar":"zorro",
-            "id":2
-         },
-         {
-            "ad":"İleri Seviye c#",
-            "aciklama":"lorem ipsum",
-            "yazar":"sanji",
-            "id":3
-         },
-         {
-            "ad":"İleri Seviye f#",
-            "aciklama":"lorem ipsum",
-            "yazar":"aliveli",
-            "id":4
-         }
-    ]
+  "yazilar": [
+    {
+      "ad": "Yeni Başlayanlar İçin C#",
+      "aciklama": "lorem ipsum",
+      "yazar": "luffy",
+      "id": 1
+    },
+    {
+      "ad": "React öğreniyorum",
+      "aciklama": "lorem ipsum",
+      "yazar": "zorro",
+      "id": 2
+    },
+    {
+      "ad": "İleri Seviye c#",
+      "aciklama": "lorem ipsum",
+      "yazar": "sanji",
+      "id": 3
+    },
+    {
+      "ad": "İleri Seviye f#",
+      "aciklama": "lorem ipsum",
+      "yazar": "aliveli",
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6
+    }
+  ]
 }

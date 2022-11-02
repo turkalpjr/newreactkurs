@@ -2,17 +2,35 @@ import { useState } from 'react';
 
 const Create = () => {
 
+
+
+
+
+
+
     const [baslik, setBaslik] = useState('');
     const [aciklama, setAciklama] = useState('');
     const [yazar, setYazar] = useState('luffy');
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const yazi={ad:baslik,aciklama,yazar};
+         
+        fetch('http://localhost:8000/yazilar/',{
+            method:'post',
+            headers:{"Content-Type":"application-json"},
+            body:JSON.stringify(yazi)
+        }).then(()=>{
+            console.log("yazi eklendi!")
+        })
 
+    }
 
     return (
         <div className="create">
             <h2 style={{ color: '#ff793f' }}> Yeni Yazı Ekle
             </h2>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Yazı Başlık: </label>
                 <input type="text" required value={baslik} onChange={(e) => setBaslik(e.target.value)} />
                 <label>Yazı Açıklama:</label>
@@ -27,6 +45,7 @@ const Create = () => {
                 {baslik}
                 {aciklama}
                 {yazar}
+                
 
             </form>
 
