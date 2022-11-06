@@ -1,26 +1,36 @@
 import { useState } from 'react';
+import {useHistory} from 'react-router-dom';
+
+
+
+
 
 const Create = () => {
-
-
-
-
-
 
 
     const [baslik, setBaslik] = useState('');
     const [aciklama, setAciklama] = useState('');
     const [yazar, setYazar] = useState('luffy');
-    const handleSubmit=(e)=>{
+
+    const [yukleniyor, setYukleniyor] = useState(false);
+
+    const history= useHistory();
+
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        const yazi={ad:baslik,aciklama,yazar};
-         
-        fetch('http://localhost:8000/yazilar/',{
-            method:'post',
-            headers:{"Content-Type":"application-json"},
-            body:JSON.stringify(yazi)
-        }).then(()=>{
+        setYukleniyor(true);
+
+        const yazi = { ad: baslik, aciklama, yazar };
+
+        fetch('http://localhost:8000/yazilar/', {
+            method: 'post',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(yazi)
+        }).then(() => {
             console.log("yazi eklendi!")
+            setYukleniyor(false);
+            history.push('/');
         })
 
     }
@@ -34,18 +44,19 @@ const Create = () => {
                 <label>Yazı Başlık: </label>
                 <input type="text" required value={baslik} onChange={(e) => setBaslik(e.target.value)} />
                 <label>Yazı Açıklama:</label>
-                <textarea  value={aciklama} onChange={(e)=>setAciklama(e.target.value)} required></textarea>
+                <textarea value={aciklama} onChange={(e) => setAciklama(e.target.value)} required></textarea>
                 <label>Yazar:</label>
-                <select value={yazar} onChange={(e)=>setYazar(e.target.value)}>
+                <select value={yazar} onChange={(e) => setYazar(e.target.value)}>
                     <option value="luffy">Luffy</option>
                     <option value="zoro">Zoro</option>
                     <option value="sanji">Sanji</option>
                 </select>
-                <button>Ekle</button>
+              {!yukleniyor&&   <button>Ekle</button>}
+              {yukleniyor&&   <button disabled>Yukleniyor</button>}
                 {baslik}
                 {aciklama}
                 {yazar}
-                
+
 
             </form>
 
